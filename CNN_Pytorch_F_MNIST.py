@@ -77,7 +77,8 @@ def train_and_test():
     )
 
     train = Train()
-    train.train_data_set(train_set, network, RunBuilder.get_runs(parameters)[0], epochs)
+    ret = train.train_data_set(train_set, network, RunBuilder.get_runs(parameters)[0], epochs)
+    network = ret['network']
 
     test_set = torchvision.datasets.FashionMNIST(
         root='F_MNIST_data_test/',
